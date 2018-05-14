@@ -292,21 +292,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114762007885310258, guid: 93acd68f951be1144af9b3a50ccb1398,
-        type: 2}
-      propertyPath: myMesh
-      value: 
-      objectReference: {fileID: 4300002, guid: 47f47ddc3cc394b43982c02799a57b1a, type: 3}
-    - target: {fileID: 114762007885310258, guid: 93acd68f951be1144af9b3a50ccb1398,
-        type: 2}
-      propertyPath: NormalDogMesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114762007885310258, guid: 93acd68f951be1144af9b3a50ccb1398,
-        type: 2}
-      propertyPath: BulliedDogMesh
-      value: 
-      objectReference: {fileID: 4300002, guid: 61f26ff83bf685d4290addcd2ff16010, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93acd68f951be1144af9b3a50ccb1398, type: 2}
   m_IsPrefabParent: 0
