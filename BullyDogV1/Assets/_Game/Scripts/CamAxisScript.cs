@@ -7,6 +7,8 @@ public class CamAxisScript : MonoBehaviour {
 
 	float camSpeed = 3f;
 
+	public TimeControl timeControl;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,7 +16,8 @@ public class CamAxisScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate (0, Input.GetAxis ("Horizontal") *camSpeed, 0);
-
+		if (!timeControl.TimeHasStopped) {
+			transform.Rotate (0, Input.GetAxis ("Horizontal") * camSpeed, 0);
+		}
 	}
 }

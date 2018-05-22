@@ -6,6 +6,7 @@ public class BulliedDog : MonoBehaviour {
 
 	public DogStates dogStates;
 	public CharacterController charaCon;
+	public Collider vertexMeshCollider;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class BulliedDog : MonoBehaviour {
 	void Update () {
 		if (dogStates.currentState == State.Bullied) {
 			Destroy (charaCon);
+			vertexMeshCollider.enabled = false;
 		}
 	}
 }

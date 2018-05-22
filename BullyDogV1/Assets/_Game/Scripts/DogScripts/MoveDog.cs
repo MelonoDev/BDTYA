@@ -10,6 +10,8 @@ public class MoveDog : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		speed = Random.Range (.5F, 1.5F);
+		CharacterController controller = GetComponent<CharacterController>();
+
 	}
 	
 	// Update is called once per frame

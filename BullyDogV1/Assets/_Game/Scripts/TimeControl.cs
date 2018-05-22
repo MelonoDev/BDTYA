@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class TimeControl : MonoBehaviour {
 
+	public GameObject[] Doggies;
+	public bool TimeHasStopped = false;
+	public AudioSource TimeStopSound;
+	public AudioSource TimeResumeSound;
+
 	// Use this for initialization
 	void Start () {
-		
+		Doggies = GameObject.FindGameObjectsWithTag("Doggy");
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown("Jump")) {
 			print ("ZA WARUDO");
+
+
+			foreach (GameObject Dog in Doggies)
+			{
+				if ((Dog.GetComponent<DogStates>().currentState != State.StopTime) && ((Dog.GetComponent<DogStates>().currentState != State.Bullied))){
+					Dog.GetComponent<DogStates>().currentState = State.StopTime; 
+					TimeHasStopped = true; 
+					TimeStopSound.Play ();
+
+				} else if ((Dog.GetComponent<DogStates>().currentState == State.StopTime)){
+					Dog.GetComponent<DogStates>().currentState = State.Idle;
+					TimeHasStopped = false;
+					TimeResumeSound.Play ();
+
+				}
+			}
 		}
 	}
 }

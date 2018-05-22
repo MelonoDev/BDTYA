@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 
 public enum State {
+	StopTime,
 	Idle, 
 	Move, 
 	Turn,
@@ -15,46 +16,88 @@ public enum State {
 public class DogStates : MonoBehaviour {
 	
 	public State currentState;
+	public bool TheBullyDog = false;
+	public AudioSource DogWhine;
 
 	private float stateChangeTimer = 3f;
 
+	private bool checkStopTime = true;
 	private bool checkIdle = true;
 	private bool checkBackToIdle = true;
+	private bool checkBullied = true;
 	private float checkMoveOrTurn;
 
-	void Start () {
+	private float timerAmount = 3f;
+	private float timerIdle;
+	private float timerBackToIdle;
+
+	void Awake () {
 		currentState = State.Idle;
+		timerIdle = timerAmount + Random.Range(-.5f, .5f);
+		timerBackToIdle = timerAmount + Random.Range(-.5f, .5f);
 	}
 
 
 	void Update () {
+
+
+
+
+
+
 		CheckState();
 	}
 
 
 	void CheckState()
 	{
+
+
 		switch (currentState)
 		{
+		case State.StopTime:
+			//Gets refered to in other scripts
+			break;		
+		
 		case State.Idle:
 			if (checkIdle) {
 				checkIdle = false;
-				Invoke ("MoveOrTurn", stateChangeTimer + Random.Range (-.5f, .5f));
+
 			}
+            
+			timerIdle -= Time.deltaTime;
+            if (timerIdle < 0)
+            {
+                MoveOrTurn();
+				timerIdle = timerAmount + Random.Range(-.5f, .5f);
+            }
+        
 			break;
 		
 		case State.Move:
 			if (checkBackToIdle) {
 				checkBackToIdle = false;
-				Invoke ("BackToIdle", stateChangeTimer + Random.Range (-.5f, .5f));
 			}
+
+			timerBackToIdle -= Time.deltaTime;
+			if (timerBackToIdle < 0) {
+				BackToIdle ();
+				timerBackToIdle = timerAmount + Random.Range(-.5f, .5f);
+			}
+			
 			break;
 		
 		case State.Turn:
 			if (checkBackToIdle) {
 				checkBackToIdle = false;
-				Invoke ("BackToIdle", stateChangeTimer + Random.Range (-.5f, .5f));
-			}			
+
+			}
+			timerBackToIdle -= Time.deltaTime;
+			if (timerBackToIdle < 0) {
+				BackToIdle ();
+				timerBackToIdle = timerAmount + Random.Range(-.5f, .5f);
+			}
+						
 			break;
 		
 		case State.Cowering:
@@ -62,15 +105,20 @@ public class DogStates : MonoBehaviour {
 			break;
 		
 		case State.Bullied:
+			if (checkBullied) {
+				checkBullied = false;
+				DogWhine.Play ();
+			}
 			break;
 		}
 	}
 
 
+
 	void MoveOrTurn(){
 		checkMoveOrTurn = Random.Range (0f, 2f);
 
-		if ((currentState != State.Cowering) || (currentState != State.Bullied)) {
+		if ((currentState != State.Cowering) && (currentState != State.Bullied) && (currentState != State.StopTime)) {
 			if (checkMoveOrTurn <= 1) {
 				currentState = State.Turn;
 
@@ -82,7 +130,7 @@ public class DogStates : MonoBehaviour {
 	}
 
 	void BackToIdle (){
-		if ((currentState != State.Cowering) || (currentState != State.Bullied)) {
+		if ((currentState != State.Cowering) && (currentState != State.Bullied) && (currentState != State.StopTime)) {
 			currentState = State.Idle;
 		}
 

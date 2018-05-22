@@ -8,6 +8,8 @@ public class SelectDog : MonoBehaviour {
 	public Shader VerticesOutlineShader2; 
 	public Renderer rend;
 	public AudioSource DogSoundSource;
+	public AudioSource NaughtyDog;
+	public DogStates dogStates;
 	
 	private bool SoundCheck = true;
 
@@ -17,22 +19,24 @@ public class SelectDog : MonoBehaviour {
 
 	}
 
-	void Update (){
 
-	}
-
-	// Use this for initialization
 	void OnMouseDown () {
-		
+		if (dogStates.currentState == State.StopTime) {
+			NaughtyDog.Play ();
+			if (!dogStates.TheBullyDog) {
+				dogStates.currentState = State.Bullied;
+				print (dogStates.currentState);
+			}
+		}
 	}
 	
-	// Update is called once per frame
 	void OnMouseOver () {
-		rend.material.shader = VerticesOutlineShader;
-		if (SoundCheck){
-			SoundCheck = false;
-			DogSoundSource.Play();
-
+		if (dogStates.currentState == State.StopTime) {
+			rend.material.shader = VerticesOutlineShader;
+			if (SoundCheck) {
+				SoundCheck = false;
+				DogSoundSource.Play ();
+			}
 		}
 
 	}
