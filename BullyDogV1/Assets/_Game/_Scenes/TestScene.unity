@@ -412,6 +412,11 @@ Prefab:
       propertyPath: m_Name
       value: DoggyParent (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 33509315667203840, guid: 93acd68f951be1144af9b3a50ccb1398,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: f90d6f10e0bb1894d9332cabdc710b9b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93acd68f951be1144af9b3a50ccb1398, type: 2}
   m_IsPrefabParent: 0
