@@ -8,6 +8,7 @@ public class TimeControl : MonoBehaviour {
 	public bool TimeHasStopped = false;
 	public AudioSource TimeStopSound;
 	public AudioSource TimeResumeSound;
+	public AudioSource SceneMusic;
 
 	// Use this for initialization
 	void Start () {
@@ -19,17 +20,20 @@ public class TimeControl : MonoBehaviour {
 			print ("ZA WARUDO");
 
 
+
 			foreach (GameObject Dog in Doggies)
 			{
 				if ((Dog.GetComponent<DogStates>().currentState != State.StopTime) && ((Dog.GetComponent<DogStates>().currentState != State.Bullied))){
 					Dog.GetComponent<DogStates>().currentState = State.StopTime; 
 					TimeHasStopped = true; 
 					TimeStopSound.Play ();
+					SceneMusic.Pause ();
 
 				} else if ((Dog.GetComponent<DogStates>().currentState == State.StopTime)){
 					Dog.GetComponent<DogStates>().currentState = State.Idle;
 					TimeHasStopped = false;
 					TimeResumeSound.Play ();
+					SceneMusic.UnPause ();
 
 				}
 			}

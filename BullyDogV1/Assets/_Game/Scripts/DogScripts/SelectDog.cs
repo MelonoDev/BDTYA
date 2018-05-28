@@ -25,7 +25,9 @@ public class SelectDog : MonoBehaviour {
 			NaughtyDog.Play ();
 			if (!dogStates.TheBullyDog) {
 				dogStates.currentState = State.Bullied;
-				print (dogStates.currentState);
+			} else {
+				dogStates.currentState = State.Smug;
+
 			}
 		}
 	}

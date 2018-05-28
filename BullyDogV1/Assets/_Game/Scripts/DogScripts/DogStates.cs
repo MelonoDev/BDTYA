@@ -11,7 +11,8 @@ public enum State {
 	Turn,
 	Cowering,
 	Bullied,
-	Peeing
+	Peeing,
+	Smug
 }
 
 public class DogStates : MonoBehaviour {
@@ -118,6 +119,11 @@ public class DogStates : MonoBehaviour {
 				timerBackToIdle = timerAmount;
 			}
 			break;
+		case State.Smug:
+			
+
+			break;
+
 		}
 	}
 
