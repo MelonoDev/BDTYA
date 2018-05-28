@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/_Scenes/StartScene.unity
     guid: 31a1dd12940646d4b83400e0504855ee
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/TestScene.unity
     guid: baf9e1952e8ef8e4d9e252233dfdb804
+  - enabled: 1
+    path: Assets/_Game/_Scenes/CreditsScene.unity
+    guid: 5471844a761130a4bbd8b2e8eeea1056
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Level1.unity
+    guid: c499e9ebeb68b684ba55cd9e24656652
+  - enabled: 1
+    path: Assets/_Game/_Scenes/LevelSelectScene.unity
+    guid: d86f6fb847842c048afc80863336bcc1
