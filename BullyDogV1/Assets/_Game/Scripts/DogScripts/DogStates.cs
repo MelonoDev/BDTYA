@@ -10,7 +10,8 @@ public enum State {
 	Move, 
 	Turn,
 	Cowering,
-	Bullied
+	Bullied,
+	Peeing
 }
 
 public class DogStates : MonoBehaviour {
@@ -18,6 +19,7 @@ public class DogStates : MonoBehaviour {
 	public State currentState;
 	public bool TheBullyDog = false;
 	public AudioSource DogWhine;
+	public AudioSource DogPeeSound;
 
 	private float stateChangeTimer = 3f;
 
@@ -39,12 +41,6 @@ public class DogStates : MonoBehaviour {
 
 
 	void Update () {
-
-
-
-
-
-
 		CheckState();
 	}
 
@@ -110,6 +106,18 @@ public class DogStates : MonoBehaviour {
 				DogWhine.Play ();
 			}
 			break;
+		case State.Peeing:
+
+			if (checkBackToIdle) {
+				checkBackToIdle = false;
+				DogPeeSound.Play ();
+			}
+			timerBackToIdle -= Time.deltaTime;
+			if (timerBackToIdle < 0) {
+				BackToIdle ();
+				timerBackToIdle = timerAmount;
+			}
+			break;
 		}
 	}
 
@@ -123,7 +131,16 @@ public class DogStates : MonoBehaviour {
 				currentState = State.Turn;
 
 			} else {
-				currentState = State.Move;
+				if (!TheBullyDog) {
+					currentState = State.Move;
+				} else {
+					if (checkMoveOrTurn > 1.5) {
+						currentState = State.Move;
+					} else {
+						currentState = State.Peeing;
+					}
+				}
+
 			}
 		}
 		checkIdle = true;
