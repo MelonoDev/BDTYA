@@ -249,7 +249,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751977526691900}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.12640953, y: 1.5821332, z: -3.000011}
+  m_LocalPosition: {x: -2.04, y: 1.48, z: -1.3462032}
   m_LocalScale: {x: 0.5, y: 0.50000095, z: 0.50000095}
   m_Children:
   - {fileID: 4743333092938366}
@@ -782,6 +782,7 @@ MonoBehaviour:
   TheBullyDog: 0
   DogWhine: {fileID: 82957930813462212}
   DogPeeSound: {fileID: 82797664160444224}
+  wrongDogPicked: {fileID: 0}
 --- !u!143 &143299819640015702
 CharacterController:
   m_ObjectHideFlags: 1
@@ -794,7 +795,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 6
   m_Radius: 2
-  m_SlopeLimit: 30
+  m_SlopeLimit: 25
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001

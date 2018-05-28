@@ -22,6 +22,9 @@ public class DogStates : MonoBehaviour {
 	public AudioSource DogWhine;
 	public AudioSource DogPeeSound;
 
+	public WrongDogPicked wrongDogPicked; //Script for showing Crosses in UI
+	public RightDogPicked rightDogPicked;
+
 	private float stateChangeTimer = 3f;
 
 	private bool checkStopTime = true;
@@ -30,14 +33,26 @@ public class DogStates : MonoBehaviour {
 	private bool checkBullied = true;
 	private float checkMoveOrTurn;
 
+	//Timer numbers for standard actions
 	private float timerAmount = 3f;
-	private float timerIdle;
-	private float timerBackToIdle;
+	private float timerIdle; //idling
+	private float timerBackToIdle; //actions like moving and turning
+
+	//Timer winning
+	private float timerWinAmount = 5f;
+	private float timerWin;
 
 	void Awake () {
 		currentState = State.Idle;
 		timerIdle = timerAmount + Random.Range(-.5f, .5f);
 		timerBackToIdle = timerAmount + Random.Range(-.5f, .5f);
+		timerWin = timerWinAmount;
+	}
+
+	void Start(){
+		wrongDogPicked = GameObject.Find("WrongParent").GetComponent<WrongDogPicked>();
+		rightDogPicked = GameObject.Find("WinParent").GetComponent<RightDogPicked>();
+
 	}
 
 
@@ -105,6 +120,7 @@ public class DogStates : MonoBehaviour {
 			if (checkBullied) {
 				checkBullied = false;
 				DogWhine.Play ();
+				wrongDogPicked.ChosenWrong ();
 			}
 			break;
 		case State.Peeing:
@@ -120,8 +136,12 @@ public class DogStates : MonoBehaviour {
 			}
 			break;
 		case State.Smug:
-			
+			timerWin -= Time.deltaTime;
 
+			if (timerWin < 0) {
+				rightDogPicked.DisplayWinMessage ();
+				timerWin = timerWinAmount;
+			}
 			break;
 
 		}
@@ -159,6 +179,7 @@ public class DogStates : MonoBehaviour {
 
 		checkBackToIdle = true;
 	}
+					
 }
 
 /*{
