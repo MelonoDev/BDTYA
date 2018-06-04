@@ -7,12 +7,10 @@ public class RightDogPicked : MonoBehaviour {
 
 	public GameObject WinMessage;
 
-	// Use this for initialization
 	void Start () {
 		WinMessage.SetActive (false);
 	}
 	
-	// Update is called once per frame
 	public void DisplayWinMessage () {
 		WinMessage.SetActive (true);
 	}

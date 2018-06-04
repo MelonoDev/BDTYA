@@ -23,7 +23,7 @@ public class TimeControl : MonoBehaviour {
 
 			foreach (GameObject Dog in Doggies)
 			{
-				if ((Dog.GetComponent<DogStates>().currentState != State.StopTime) && ((Dog.GetComponent<DogStates>().currentState != State.Bullied))){
+				if ((Dog.GetComponent<DogStates>().currentState != State.StopTime) && ((Dog.GetComponent<DogStates>().currentState != State.Bullied)) && ((Dog.GetComponent<DogStates>().currentState != State.Smug))){
 					Dog.GetComponent<DogStates>().currentState = State.StopTime; 
 					TimeHasStopped = true; 
 					TimeStopSound.Play ();

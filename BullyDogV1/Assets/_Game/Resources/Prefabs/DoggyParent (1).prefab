@@ -784,6 +784,10 @@ MonoBehaviour:
   DogPeeSound: {fileID: 82797664160444224}
   wrongDogPicked: {fileID: 0}
   rightDogPicked: {fileID: 0}
+  IdleDogMat: {fileID: 2800000, guid: 9671b7bceb00bfb4bb4a7ea612764ccf, type: 3}
+  PeeingMat: {fileID: 2800000, guid: 8108e222569da0546a5a25af28090bdd, type: 3}
+  SmugMat: {fileID: 2800000, guid: 2cf55493552dde343886eed9693a2562, type: 3}
+  BulliedMat: {fileID: 2800000, guid: 9be7529077c6d7344992a613a152441b, type: 3}
 --- !u!143 &143299819640015702
 CharacterController:
   m_ObjectHideFlags: 1

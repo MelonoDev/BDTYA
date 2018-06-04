@@ -23,7 +23,13 @@ public class DogStates : MonoBehaviour {
 	public AudioSource DogPeeSound;
 
 	public WrongDogPicked wrongDogPicked; //Script for showing Crosses in UI
-	public RightDogPicked rightDogPicked;
+	public RightDogPicked rightDogPicked; //Script for winning
+
+	//material to change to according to State
+	public Texture IdleDogMat;
+	public Texture PeeingMat;
+	public Texture SmugMat;
+	public Texture BulliedMat;
 
 	private float stateChangeTimer = 3f;
 
@@ -39,7 +45,7 @@ public class DogStates : MonoBehaviour {
 	private float timerBackToIdle; //actions like moving and turning
 
 	//Timer winning
-	private float timerWinAmount = 5f;
+	private float timerWinAmount = 2.5f;
 	private float timerWin;
 
 	void Awake () {
@@ -69,6 +75,9 @@ public class DogStates : MonoBehaviour {
 		{
 		case State.StopTime:
 			//Gets refered to in other scripts
+
+
+
 			break;		
 		
 		case State.Idle:
@@ -78,11 +87,12 @@ public class DogStates : MonoBehaviour {
 			}
             
 			timerIdle -= Time.deltaTime;
-            if (timerIdle < 0)
-            {
-                MoveOrTurn();
-				timerIdle = timerAmount + Random.Range(-.5f, .5f);
-            }
+			if (timerIdle < 0) {
+				MoveOrTurn ();
+				timerIdle = timerAmount + Random.Range (-.5f, .5f);
+			}
+
+			GetComponent<Renderer> ().material.mainTexture = IdleDogMat;
         
 			break;
 		
@@ -122,7 +132,11 @@ public class DogStates : MonoBehaviour {
 				DogWhine.Play ();
 				wrongDogPicked.ChosenWrong ();
 			}
+
+			GetComponent<Renderer> ().material.mainTexture = BulliedMat;
+
 			break;
+
 		case State.Peeing:
 
 			if (checkBackToIdle) {
@@ -134,7 +148,12 @@ public class DogStates : MonoBehaviour {
 				BackToIdle ();
 				timerBackToIdle = timerAmount;
 			}
+
+			GetComponent<Renderer> ().material.mainTexture = PeeingMat;
+
+
 			break;
+
 		case State.Smug:
 			timerWin -= Time.deltaTime;
 
@@ -142,6 +161,10 @@ public class DogStates : MonoBehaviour {
 				rightDogPicked.DisplayWinMessage ();
 				timerWin = timerWinAmount;
 			}
+
+			GetComponent<Renderer> ().material.mainTexture = SmugMat;
+
+
 			break;
 
 		}
@@ -160,8 +183,8 @@ public class DogStates : MonoBehaviour {
 				if (!TheBullyDog) {
 					currentState = State.Move;
 				} else {
-					if (checkMoveOrTurn > 1.5) {
-						currentState = State.Move;
+					if (checkMoveOrTurn > 1.35) {
+						currentState = State.Move; 
 					} else {
 						currentState = State.Peeing;
 					}
