@@ -24,6 +24,7 @@ public class DogStates : MonoBehaviour {
 
 	public WrongDogPicked wrongDogPicked; //Script for showing Crosses in UI
 	public RightDogPicked rightDogPicked; //Script for winning
+	public PeeLevel peeLevel;
 
 	//material to change to according to State
 	public Texture IdleDogMat;
@@ -48,22 +49,33 @@ public class DogStates : MonoBehaviour {
 	private float timerWinAmount = 2.5f;
 	private float timerWin;
 
+	//Animator
+	public Animator ThisAnimator;
+
 	void Awake () {
 		currentState = State.Idle;
 		timerIdle = timerAmount + Random.Range(-.5f, .5f);
 		timerBackToIdle = timerAmount + Random.Range(-.5f, .5f);
 		timerWin = timerWinAmount;
+
+		ThisAnimator = gameObject.GetComponent<Animator> ();
 	}
 
 	void Start(){
 		wrongDogPicked = GameObject.Find("WrongParent").GetComponent<WrongDogPicked>();
 		rightDogPicked = GameObject.Find("WinParent").GetComponent<RightDogPicked>();
+		peeLevel = GameObject.Find("PeeLevelParent").GetComponent<PeeLevel>();
 
 	}
 
 
 	void Update () {
 		CheckState();
+		if (currentState == State.Move) {
+			ThisAnimator.SetBool ("MovingBool", true);
+		} else {
+			ThisAnimator.SetBool ("MovingBool", false);
+		}
 	}
 
 
@@ -142,6 +154,7 @@ public class DogStates : MonoBehaviour {
 			if (checkBackToIdle) {
 				checkBackToIdle = false;
 				DogPeeSound.Play ();
+				peeLevel.GainPee ();
 			}
 			timerBackToIdle -= Time.deltaTime;
 			if (timerBackToIdle < 0) {
@@ -183,7 +196,7 @@ public class DogStates : MonoBehaviour {
 				if (!TheBullyDog) {
 					currentState = State.Move;
 				} else {
-					if (checkMoveOrTurn > 1.35) {
+					if (checkMoveOrTurn > 1.45) {
 						currentState = State.Move; 
 					} else {
 						currentState = State.Peeing;

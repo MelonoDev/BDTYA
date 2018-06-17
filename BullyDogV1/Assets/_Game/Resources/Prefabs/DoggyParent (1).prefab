@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114129544407099550}
   - component: {fileID: 114762007885310258}
   - component: {fileID: 64818196764096020}
+  - component: {fileID: 95867855292945178}
   m_Layer: 8
   m_Name: Doggy
   m_TagString: Doggy
@@ -711,6 +712,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95867855292945178
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1186137397610162}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: d5218d0d545d2934ba2c3ed195d64e71, type: 3}
+  m_Controller: {fileID: 9100000, guid: b19436c6124e7e34c9e5cf5734921086, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114129544407099550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -788,6 +806,7 @@ MonoBehaviour:
   PeeingMat: {fileID: 2800000, guid: 8108e222569da0546a5a25af28090bdd, type: 3}
   SmugMat: {fileID: 2800000, guid: 2cf55493552dde343886eed9693a2562, type: 3}
   BulliedMat: {fileID: 2800000, guid: 9be7529077c6d7344992a613a152441b, type: 3}
+  ThisAnimator: {fileID: 0}
 --- !u!143 &143299819640015702
 CharacterController:
   m_ObjectHideFlags: 1
