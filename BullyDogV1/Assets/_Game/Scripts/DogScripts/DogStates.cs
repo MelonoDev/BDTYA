@@ -32,9 +32,6 @@ public class DogStates : MonoBehaviour {
 	public Texture SmugMat;
 	public Texture BulliedMat;
 
-	private float stateChangeTimer = 3f;
-
-	private bool checkStopTime = true;
 	private bool checkIdle = true;
 	private bool checkBackToIdle = true;
 	private bool checkBullied = true;
