@@ -7,7 +7,7 @@ public class PeeLevel : MonoBehaviour {
 
 	public Slider peeBar;
 	public float PeeAmount = 0;
-	public float PeeMaximum = 5;
+	public float PeeMaximum = 7;
 	public GameObject LoseObjectPee;
 
 	// Use this for initialization

@@ -42,6 +42,8 @@ public class DogStates : MonoBehaviour {
 
 	//Timer numbers for standard actions
 	private float timerAmount = 3f;
+	private float timerPeeAmount = 4.632f;
+	private float timerPeeBackToIdle; //action is peeing
 	private float timerIdle; //idling
 	private float timerBackToIdle; //actions like moving and turning
 
@@ -56,6 +58,7 @@ public class DogStates : MonoBehaviour {
 		currentState = State.Idle;
 		timerIdle = timerAmount + Random.Range(-.5f, .5f);
 		timerBackToIdle = timerAmount + Random.Range(-.5f, .5f);
+		timerPeeBackToIdle = timerPeeAmount;
 		timerWin = timerWinAmount;
 
 		ThisAnimator = gameObject.GetComponent<Animator> ();
@@ -156,10 +159,10 @@ public class DogStates : MonoBehaviour {
 				DogPeeSound.Play ();
 				peeLevel.GainPee ();
 			}
-			timerBackToIdle -= Time.deltaTime;
-			if (timerBackToIdle < 0) {
+			timerPeeBackToIdle -= Time.deltaTime;
+			if (timerPeeBackToIdle < 0) {
 				BackToIdle ();
-				timerBackToIdle = timerAmount;
+				timerPeeBackToIdle = timerPeeAmount;
 			}
 
 			GetComponent<Renderer> ().material.mainTexture = PeeingMat;
@@ -196,7 +199,7 @@ public class DogStates : MonoBehaviour {
 				if (!TheBullyDog) {
 					currentState = State.Move;
 				} else {
-					if (checkMoveOrTurn > 1.45) {
+					if (checkMoveOrTurn > 1.6) {
 						currentState = State.Move; 
 					} else {
 						currentState = State.Peeing;

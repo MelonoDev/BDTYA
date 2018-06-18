@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelControlButtonScript : MonoBehaviour {
 
 	public void ToNextLevel(){
-		SceneManager.LoadScene ("Level" + SceneManager.GetActiveScene ().buildIndex + 1);
+		SceneManager.LoadScene ("Level" + SceneManager.GetActiveScene ().buildIndex.ToString());
 	}
 
 	public void ToMainMenu(){
