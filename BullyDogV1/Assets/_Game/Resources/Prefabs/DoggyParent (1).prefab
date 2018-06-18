@@ -166,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1230606615059850}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.21, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4481416922498428}
@@ -250,7 +250,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751977526691900}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.12640953, y: 1.5821332, z: -3.000011}
+  m_LocalPosition: {x: 2.357597, y: 1.6304094, z: -1.2686975}
   m_LocalScale: {x: 0.5, y: 0.50000095, z: 0.50000095}
   m_Children:
   - {fileID: 4743333092938366}
@@ -802,6 +802,7 @@ MonoBehaviour:
   DogPeeSound: {fileID: 82797664160444224}
   wrongDogPicked: {fileID: 0}
   rightDogPicked: {fileID: 0}
+  peeLevel: {fileID: 0}
   IdleDogMat: {fileID: 2800000, guid: 9671b7bceb00bfb4bb4a7ea612764ccf, type: 3}
   PeeingMat: {fileID: 2800000, guid: 8108e222569da0546a5a25af28090bdd, type: 3}
   SmugMat: {fileID: 2800000, guid: 2cf55493552dde343886eed9693a2562, type: 3}

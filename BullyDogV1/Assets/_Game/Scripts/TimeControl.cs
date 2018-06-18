@@ -17,7 +17,6 @@ public class TimeControl : MonoBehaviour {
 	
 	void Update () {
 		if (Input.GetButtonDown("Jump")) {
-			print ("ZA WARUDO");
 
 
 

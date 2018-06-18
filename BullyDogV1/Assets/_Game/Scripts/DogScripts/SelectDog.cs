@@ -50,4 +50,3 @@ public class SelectDog : MonoBehaviour {
 }
 
 
-//Unity Development with Visual Studio Code
