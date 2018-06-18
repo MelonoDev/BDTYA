@@ -47,6 +47,9 @@ public class DogStates : MonoBehaviour {
 	private float timerIdle; //idling
 	private float timerBackToIdle; //actions like moving and turning
 
+	//PseudoRandomise Peeing
+	private int peeCounter = 0;
+
 	//Timer winning
 	private float timerWinAmount = 2.5f;
 	private float timerWin;
@@ -165,6 +168,9 @@ public class DogStates : MonoBehaviour {
 				timerPeeBackToIdle = timerPeeAmount;
 			}
 
+			peeCounter = 0;
+
+
 			GetComponent<Renderer> ().material.mainTexture = PeeingMat;
 
 
@@ -192,21 +198,30 @@ public class DogStates : MonoBehaviour {
 		checkMoveOrTurn = Random.Range (0f, 2f);
 
 		if ((currentState != State.Cowering) && (currentState != State.Bullied) && (currentState != State.StopTime)) {
-			if (checkMoveOrTurn <= 1) {
-				currentState = State.Turn;
 
-			} else {
-				if (!TheBullyDog) {
-					currentState = State.Move;
+			if (peeCounter < 3) {
+				if (checkMoveOrTurn <= 1) {
+					currentState = State.Turn;
+
 				} else {
-					if (checkMoveOrTurn > 1.6) {
-						currentState = State.Move; 
+					if (!TheBullyDog) {
+						currentState = State.Move;
 					} else {
-						currentState = State.Peeing;
+						if (checkMoveOrTurn > 1.4) {
+							currentState = State.Move; 
+						} else {
+							currentState = State.Peeing;
+						}
 					}
-				}
 
+				}
+			} else {
+				currentState = State.Peeing;
 			}
+			if (this.TheBullyDog) {
+				peeCounter += 1;
+			}
+				
 		}
 		checkIdle = true;
 	}
