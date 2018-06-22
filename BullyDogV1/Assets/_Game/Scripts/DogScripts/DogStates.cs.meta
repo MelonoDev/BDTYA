@@ -5,7 +5,17 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - DogWhine: {instanceID: 0}
+  - DogPeeSound: {instanceID: 0}
+  - wrongDogPicked: {instanceID: 0}
+  - rightDogPicked: {instanceID: 0}
+  - peeLevel: {instanceID: 0}
+  - IdleDogMat: {fileID: 2800000, guid: c8f1080793b98964ba7aedc5053d6aad, type: 3}
+  - PeeingMat: {fileID: 2800000, guid: 20f2625b95d9ad04aa95d19681232ba6, type: 3}
+  - SmugMat: {fileID: 2800000, guid: df67819a69f22fc4d8f80eed1e9e3aeb, type: 3}
+  - BulliedMat: {fileID: 2800000, guid: 4ee59f1b825903349a5f89361adb5c9b, type: 3}
+  - ThisAnimator: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

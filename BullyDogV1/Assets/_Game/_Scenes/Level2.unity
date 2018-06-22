@@ -2211,6 +2211,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4959180032644272, guid: 1cbee5c44243e3c44abfb4911c7ee328, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959180032644272, guid: 1cbee5c44243e3c44abfb4911c7ee328, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -15.51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cbee5c44243e3c44abfb4911c7ee328, type: 2}
   m_IsPrefabParent: 0
@@ -2699,26 +2707,6 @@ Prefab:
       propertyPath: m_Name
       value: DoggyParent (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 4758253791480770, guid: 93acd68f951be1144af9b3a50ccb1398, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.50000024
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758253791480770, guid: 93acd68f951be1144af9b3a50ccb1398, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.50000024
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758253791480770, guid: 93acd68f951be1144af9b3a50ccb1398, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758253791480770, guid: 93acd68f951be1144af9b3a50ccb1398, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -192.887
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758253791480770, guid: 93acd68f951be1144af9b3a50ccb1398, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.50000036
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93acd68f951be1144af9b3a50ccb1398, type: 2}
   m_IsPrefabParent: 0
@@ -2879,11 +2867,11 @@ HingeJoint:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     targetVelocity: 0
     force: 0
-    freeSpin: 0
+    freeSpin: 1
   m_UseLimits: 1
   m_Limits:
     min: -9.079653

@@ -249,14 +249,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751977526691900}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.357597, y: 1.6304094, z: -1.2686975}
-  m_LocalScale: {x: 0.5, y: 0.50000095, z: 0.50000095}
+  m_LocalRotation: {x: 0.079355255, y: -0.70263994, z: -0.7026398, w: -0.07935506}
+  m_LocalPosition: {x: -3.21, y: 1.63, z: -6.06}
+  m_LocalScale: {x: 0.50000036, y: 0.50000024, z: 0.50000024}
   m_Children:
   - {fileID: 4743333092938366}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -192.887}
 --- !u!23 &23177588371704046
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -803,10 +803,10 @@ MonoBehaviour:
   wrongDogPicked: {fileID: 0}
   rightDogPicked: {fileID: 0}
   peeLevel: {fileID: 0}
-  IdleDogMat: {fileID: 2800000, guid: 9671b7bceb00bfb4bb4a7ea612764ccf, type: 3}
-  PeeingMat: {fileID: 2800000, guid: 8108e222569da0546a5a25af28090bdd, type: 3}
-  SmugMat: {fileID: 2800000, guid: 2cf55493552dde343886eed9693a2562, type: 3}
-  BulliedMat: {fileID: 2800000, guid: 9be7529077c6d7344992a613a152441b, type: 3}
+  IdleDogMat: {fileID: 2800000, guid: c8f1080793b98964ba7aedc5053d6aad, type: 3}
+  PeeingMat: {fileID: 2800000, guid: 20f2625b95d9ad04aa95d19681232ba6, type: 3}
+  SmugMat: {fileID: 2800000, guid: df67819a69f22fc4d8f80eed1e9e3aeb, type: 3}
+  BulliedMat: {fileID: 2800000, guid: 4ee59f1b825903349a5f89361adb5c9b, type: 3}
   ThisAnimator: {fileID: 0}
 --- !u!143 &143299819640015702
 CharacterController:
